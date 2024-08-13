@@ -116,11 +116,13 @@ function removeFromCart(shopItem)
    let items=cartQuantities.get(shopItem.name)-1;
    if(items<=0)
    {
-      cartItems.remove(shopItem);
+      cartItems=cartItems.filter(item=>item.name!=shopItem.name)
       cartQuantities.delete(shopItem.name)
    } else{
       cartQuantities.set(shopItem.name,items)
    }
+   console.log(cartItems)
+   console.log(cartQuantities)
       
    reloadCart();
 }
