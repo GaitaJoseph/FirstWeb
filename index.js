@@ -59,7 +59,9 @@ let totAmount=0;
       //console.log(cartItems[i]);
      drawCartItem(cartItems[i]);
    // totalAmount.innerHTML=totAmount;
-   myCart.innerHTML+=`<br><p>Grand Total : ${totAmount} </p>`
+   let totAmountDiv=document.createElement("div");
+   totAmountDiv.innerHTML=`<br><p>Grand Total : ${totAmount} </p>`
+   myCart.append(totAmountDiv)
  }
  function drawCartItem(shopItem){
       //container to hold properties my cart items
@@ -68,16 +70,24 @@ let totAmount=0;
       //properties in cart container
       let listImage = document.createElement("li");
       let listName = document.createElement("li");
+      listName.addEventListener("click",()=>{
+         console.log("hovering")
+      })
       let listPrice = document.createElement("li");
       let removeButton = document.createElement("button");
       let listQuantity=document.createElement("li");
       listQuantity.innerHTML=cartQuantities.get(shopItem.name)+" items"
-      removeButton.textContent = "remove";
+      removeButton.innerHTML = "remove";
       removeButton.setAttribute("class","removeFromCart");
+      removeButton.id="removeButton"+shopItem.name
       removeButton.onclick=function(){
-        container.remove(shopItem)
+         console.log("removing")
+         console.log(shopItem)
+         //   container.remove(shopItem)
+        removeFromCart(shopItem);
       }
-   
+
+         
       //appending properties of items in cart container
       container.append(listImage,listName,listPrice,removeButton,listQuantity)
       
@@ -98,11 +108,22 @@ let totAmount=0;
 //let Amount = Number (totAmount)
       //appending the container of cart properties to the cart
       myCart.append(container)
-
      
  }//end of function to add and remove items in my cart
 
-
+function removeFromCart(shopItem)
+{
+   let items=cartQuantities.get(shopItem.name)-1;
+   if(items<=0)
+   {
+      cartItems.remove(shopItem);
+      cartQuantities.delete(shopItem.name)
+   } else{
+      cartQuantities.set(shopItem.name,items)
+   }
+      
+   reloadCart();
+}
  
 
 //section to hold items in my shop
@@ -179,6 +200,9 @@ h4.addEventListener("click",function (){
 });
 
 
+listName.addEventListener("click",()=>{
+   console.log("hovering")
+})
 
 }//end of the loop to display my shop items
 
