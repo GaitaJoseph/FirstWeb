@@ -83,7 +83,6 @@ let totAmount=0;
       removeButton.onclick=function(){
          console.log("removing")
          console.log(shopItem)
-         //   container.remove(shopItem)
         removeFromCart(shopItem);
       }
 
@@ -149,37 +148,17 @@ for (i in shopArray) {
    let listImage = document.createElement("li")
    let listName = document.createElement("li")
    let listPrice = document.createElement("li")
-//functipon to show items properties i my shop
+//functipon to show items properties in my shop
    let detailsBtn = document.createElement("button")
-   detailsBtn.textContent = "showDetails";
+   detailsBtn.setAttribute("class","add")
+   detailsBtn.textContent = "Description..";
    let Details = shopArray[i]
    detailsBtn.onclick = function () { showdetails (Details)}
    let h4 = document.createElement("h4");
     
-//variable to select amount needed
-   let quantity = document.createElement("input");
- quantity.setAttribute("type","number");
- quantity.placeholder = "selecet quantity"
- quantity.setAttribute("min",1)
- quantity.setAttribute("class","quantity")
- quantity.defaultValue=1;
  
-
- //function to calculate totalCost
- function totalCost () {
-   let amount = quantity.value
-   let numAmount = Number(amount)
-   console.log(numAmount)
-   let numPrice = Number(shopArray[i].price)
-
-   let Cost = numAmount * numPrice
-   console.log(Cost);
-
- }
- 
-
 //div  to append properties of each of the item
-   demo.append(listImage,listName,listPrice,addButton,quantity,detailsBtn,h4,)
+   demo.append(listImage,listName,listPrice,addButton,detailsBtn,h4,)
 //display of shop image
 let image = document.createElement("img")
  image.setAttribute("class","image")
@@ -212,7 +191,9 @@ let myCartBtn = document.querySelector(".cartButton")// this is a div to dispaly
 
 //creation of my cart button 
  let cartButton =  document.createElement("button");
- cartButton.textContent = "View Cart"
+ cartButton.textContent = "View Cart";
+ cartButton.setAttribute('class','viewCart')
+
  myCartBtn.append(cartButton)//appending my cart button to the div mycartbutton
 
  //event listener to dispaly my cart

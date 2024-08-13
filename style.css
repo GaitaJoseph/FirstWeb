@@ -1,5 +1,5 @@
 body{
-  background: orange;
+  background: rgba(255, 166, 0, 0.932);
 }
 
 .image{
@@ -16,37 +16,50 @@ body{
     margin: 5px;
     padding: 10px;
     width: 150px;
-    background: white;
+    height: 220px;
+    background:hsla(0, 0%, 100%, 0.781);
     
     
+}
+#shopDivider{
+  display: flex;
+  margin: 40px 10px;
 }
 
 #itemzDiv{
     display: flex;
  }
 
+ #cartDivider{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0px 0px 0px 400px;
+
+ }
+
   .cartButton{
-    float: right;
-    margin-top: -200px;
-    margin-right: 20px;
+    width: 80%;
+    margin: 0px 0px 0px 200px;
+  
  } 
 
  #myCart{
-   margin-top: -150px;
-   float:right;
-   margin-right: 50px;
-   /*border: 2px solid red;*/
    border-radius: 15px;
    width:200px;
-   padding: 5px;
-   align-items:center;
+   padding: 30px;
    display: none;
-   background: white;
+   background:rgba(255, 255, 255, 0.815);
+   list-style-type: none;
+    list-style: none;
+
    
  }
 
  #container{
     display: flex;
+    list-style-type: none;
+    list-style: none;
  }
  
  .Cart-image{
@@ -54,6 +67,46 @@ body{
  }
 .quantity{
   width: 100px ;
+}
+.add{
+  border: none;
+  outline: none;
+  padding: 5px,0px;
+  color: blue;
+  background: white;
+}
+.addToCart{
+  color: white;
+  background: green;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 10px;
+}
+.addToCart:hover{
+  color: black;
+  background: hsla(120, 100%, 25%, 0.708);
+}
+.removeFromCart{
+  color: white;
+  background:red;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 10px;
+}
+.viewCart{
+  background: green;
+  color: white;
+  font-weight: bolder;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  width: 100px;
+  
 }
 
 
