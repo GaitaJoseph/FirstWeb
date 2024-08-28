@@ -12,10 +12,6 @@
 //myshop items in the array
  let shopArray = [];
  
- //div holding my cart items
-let myCart = document.getElementById("myCart");
-let cartQuantities=new Map()
-let cartItems=[]
 
 
 //function to add items in my shop array
@@ -34,6 +30,11 @@ console.log(shopArray);//end of items innmy shop
 
  // h5 element to hold subtotal in my cart
  let totalAmount = document.createElement("h5")
+  //div holding my cart items
+let myCart = document.getElementById("myCart");
+let cartQuantities=new Map()
+let cartItems=[]
+console.log(cartItems)
 let totAmount=0;
 
  //function to add items to my cart
@@ -41,7 +42,7 @@ let totAmount=0;
  {
    if(cartQuantities.has(shopItem.name))
    {
-      prevNum=cartQuantities.get(shopItem.name)
+      prevNum=cartQuantities.get(shopItem.name)//gives a  numeral value
       cartQuantities.set(shopItem.name,prevNum+1)
    } else {
       cartItems.push(shopItem);
@@ -51,12 +52,14 @@ let totAmount=0;
    reloadCart();
  }
 
+
  function reloadCart()
  {
    totAmount=0.0;
    myCart.innerHTML=""
    for(let i=0;i<cartItems.length;i++)
-      //console.log(cartItems[i]);
+    // console.log(cartItems[i]);
+     
      drawCartItem(cartItems[i]);
    // totalAmount.innerHTML=totAmount;
    let totAmountDiv=document.createElement("div");
@@ -64,27 +67,27 @@ let totAmount=0;
    myCart.append(totAmountDiv)
  }
  function drawCartItem(shopItem){
+   
       //container to hold properties my cart items
       let container=document.createElement("div");
 
       //properties in cart container
       let listImage = document.createElement("li");
       let listName = document.createElement("li");
-      listName.addEventListener("click",()=>{
-         console.log("hovering")
-      })
+     
       let listPrice = document.createElement("li");
       let removeButton = document.createElement("button");
       let listQuantity=document.createElement("li");
       listQuantity.innerHTML=cartQuantities.get(shopItem.name)+" items"
       removeButton.innerHTML = "remove";
       removeButton.setAttribute("class","removeFromCart");
-      removeButton.id="removeButton"+shopItem.name
+      removeButton.id="removeButton"//+shopItem.name
       removeButton.onclick=function(){
          console.log("removing")
          console.log(shopItem)
         removeFromCart(shopItem);
       }
+     
 
          
       //appending properties of items in cart container
@@ -116,6 +119,8 @@ function removeFromCart(shopItem)
    if(items<=0)
    {
       cartItems=cartItems.filter(item=>item.name!=shopItem.name)
+      
+      console.log(shopItem.name);
       cartQuantities.delete(shopItem.name)
    } else{
       cartQuantities.set(shopItem.name,items)
@@ -142,7 +147,7 @@ for (i in shopArray) {
    let addButton = document.createElement("button");//button to add each item
    addButton.textContent = "addToCart";//name of the button
    addButton.setAttribute("class","addToCart")//class iof the button
-   let shopItem=shopArray[i];//properties of items in my shop variable
+   let shopItem=shopArray[i]//;properties of items in my shop variable
    addButton.onclick = function(){addToCart(shopItem)};//function to add each items
   //properties of items
    let listImage = document.createElement("li")
@@ -204,6 +209,8 @@ let myCartBtn = document.querySelector(".cartButton")// this is a div to dispaly
  cartButton.addEventListener("dblclick",function(){
     myCart.style.display ="none"
  })
+
+
 
 
 
