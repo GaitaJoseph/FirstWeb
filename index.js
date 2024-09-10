@@ -1,5 +1,21 @@
- //myShop constructor
+const bars = document.getElementById("bar-container");
 
+// Assign an event listener to the bars element
+bars.onclick = function() {
+    const menu = document.getElementById('menu-container');
+    
+    // Check the current display style of the menu
+    const currentDisplay = menu.style.display;
+    
+    // Toggle the menu display
+    if (currentDisplay === "block") {
+        menu.style.display = "none"; // Hide the menu
+    } else {
+        menu.style.display = "block"; // Show the menu
+    }
+};
+ 
+ //myShop constructor
  class itemz{
     constructor(image,name,price,details){
        this.image = image;
@@ -201,16 +217,31 @@ let myCartBtn = document.querySelector(".cartButton")// this is a div to dispaly
 
  myCartBtn.append(cartButton)//appending my cart button to the div mycartbutton
 
- //event listener to dispaly my cart
+ /*//event listener to dispaly my cart
  cartButton.addEventListener("click",function () {
    myCart.style.display ="block"
+   ItemzDiv.style.display = "none"
  })
 //event listener to hide my cart
  cartButton.addEventListener("dblclick",function(){
     myCart.style.display ="none"
- })
+    ItemzDiv.style.display = "flex"
+ });*/
 
-
+ cartButton.addEventListener("click",function () {
+  let itemDis = document.getElementById("itemzDiv");
+  let cartDis = document.getElementById("myCart")
+   curretItem = itemDis.style.display
+   curretCart = cartDis.style.display
+  if(curretItem == "flex" && curretCart == "none"){
+      itemDis.style.display = "none" 
+       cartDis.style.display = "block"
+  }
+  else{
+    itemDis.style.display = "flex" 
+       cartDis.style.display = "none"
+  }
+ });
 
 
 

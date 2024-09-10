@@ -1,153 +1,266 @@
-body{
-  background: rgba(232, 232, 230, 0.932);
+body {
+  background: rgb(189, 221, 249);
+  padding: 0;
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.image{
-    height: 80px;
-    
+header {
+  background: blue;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between logo and menu */
+  padding: 0 20px; /* Padding for better spacing */
+  
 }
-#content, #tabsContainer{
+
+#logo {
+  margin-left: 30px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bolder;
+  font-size: 35px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#menu-container {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+#menu {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+
+#menu li a:hover {
+  background: aliceblue;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+#bar-container {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.bars {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 25px;
+  margin-top: 5px;
+}
+
+.image {
+  height: 80px;
+}
+
+#content {
   margin: 50px;
   font-size: 16px;
   color: navy;
 }
-#tabs{
-  background: rgb(161, 161, 250);
-  height: 120px;
-  display: flex;
-  justify-content: space-between;
-  
-  
-}
-header div button a{
-  text-decoration: none;
-  color: blue;
-  font-weight: bolder;
-}
-header div button a:hover{
-  color: white;
-}
-header div button{
-  border: 1px solid blue;
-  border-radius: 10px;
-  padding: 4px 8px;
-  
-}
-header div button:hover{
-  background: green;
-  color: white;
-}
-footer{
+
+footer {
   height: 120px;
   background: blue;
   text-align: center;
   color: white;
   font-weight: bolder;
   width: 100%;
-}
-#main1{display: flex;}
-.main-images{
-  height: 400px;
+  padding: 20px;
 }
 
-.lists{
-    list-style-type: none;
-    /*border: 2px solid blue;*/
-    border-radius: 15px;
-    margin: 5px;
-    padding: 10px;
-    width: 150px;
-    height: 220px;
-    background:hsla(0, 0%, 100%, 0.781);
-    
-    
-}
-#shopDivider{
+#main1 {
   display: flex;
-  margin: 40px 10px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
-#itemzDiv{
-    display: flex;
- }
+.main-images {
+  height: auto; /* Adjust based on image aspect ratio */
+  width: 100%;
+  max-width: 100%; /* Ensure it scales down with the viewport */
+  margin-top: 20px;
+}
 
- #cartDivider{
+.lists {
+  list-style-type: none;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 10px;
+  width: 150px;
+  height: 220px;
+  background: hsla(0, 0%, 100%, 0.781);
+}
+
+#shopDivider {
+display: flex;
+margin-left: 10px;
+gap: 30px;
+}
+#itemzDiv{
+display: flex;
+}
+
+#cartDivider {
+  position: absolute;
+  right: 30px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 0px 0px 0px 400px;
-
- }
-
-  .cartButton{
-    width: 80%;
-    margin: 0px 0px 0px 200px;
   
- } 
-
- #myCart{
-   border-radius: 15px;
-   width:200px;
-   padding: 30px;
-   display: none;
-   background:rgba(255, 255, 255, 0.815);
-   list-style-type: none;
-    list-style: none;
-
-   
- }
-
- #container{
-    display: flex;
-    list-style-type: none;
-    list-style: none;
- }
- 
- .Cart-image{
-  height: 20px;
- }
-.quantity{
-  width: 100px ;
 }
-.add{
+
+.cartButton {
+  width: 80%;
+}
+
+#myCart {
+  margin-right: 40px;
+  border-radius: 15px;
+  width: 250px;
+  padding: 30px;
+  display: none;
+  background: rgba(255, 255, 255, 0.815);
+  list-style-type: none;
+}
+
+.container {
+  display: flex;
+  list-style: none;
+}
+
+.Cart-image {
+  height: 20px;
+}
+
+.quantity {
+  width: 100px;
+}
+
+.add, .addToCart, .removeFromCart, .viewCart {
   border: none;
   outline: none;
-  padding: 5px,0px;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 10px;
+}
+
+.add {
   color: blue;
   background: white;
 }
-.addToCart{
+
+.addToCart {
   color: white;
   background: green;
-  border: none;
-  outline: none;
-  border-radius: 15px;
-  padding: 5px 10px;
-  font-size: 10px;
 }
-.addToCart:hover{
+
+.addToCart:hover {
   color: black;
   background: hsla(120, 100%, 25%, 0.708);
 }
-.removeFromCart{
+
+.removeFromCart {
   color: white;
-  background:red;
-  border: none;
-  outline: none;
-  border-radius: 15px;
-  padding: 5px 10px;
-  font-size: 10px;
+  background: red;
 }
-.viewCart{
+
+.viewCart {
   background: green;
   color: white;
   font-weight: bolder;
-  padding: 8px 10px;
-  border: none;
-  outline: none;
-  border-radius: 15px;
   width: 100px;
-  
 }
 
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  #bar-container {
+      display: block;
+  }
 
+  #logo {
+      font-size: 20px;
+      margin-left: 10px;
+  }
+
+  #menu-container {
+      display: none;
+      position: absolute;
+      top: 80px;
+      right: 0.5px;
+      left: 0.5px;
+      background: aliceblue;
+      width: 100%;
+      z-index: 1;
+      color: blue;
+      
+  }
+
+  #menu {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #menu li {
+      padding: 10px;
+      text-align: center;
+  }
+
+  #menu li a {
+      display: block;
+      padding: 10px;
+      font-size: 15px;
+      color: navy;
+      font-weight: bold;
+  }
+
+  .main-images {
+      height: 90px;
+      width: 100%;
+      margin-top: 20px;
+  }
+
+  #shopDivider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left:20px ;
+  }
+
+  #itemzDiv{
+    position: absolute;
+    top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  #cartDivider{
+   background: orange;
+    position: absolute;
+    top: 90px;
+  }
+
+}
