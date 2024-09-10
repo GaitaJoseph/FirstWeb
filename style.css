@@ -68,6 +68,7 @@ header {
   height: 2px;
   width: 25px;
   margin-top: 5px;
+  transition: 0.8s;
 }
 
 .image {
@@ -206,7 +207,7 @@ display: flex;
   }
 
   #menu-container {
-      display: none;
+      display: block;
       position: absolute;
       top: 80px;
       right: 0.5px;
@@ -215,6 +216,10 @@ display: flex;
       width: 100%;
       z-index: 1;
       color: blue;
+      height:0px;
+      opacity: 0%;
+      overflow: hidden;
+      transition: 0.8s;
       
   }
 

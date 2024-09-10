@@ -123,6 +123,7 @@ body {
     height: 2px;
     width: 25px;
     margin-top: 5px;
+    transition: 0.8s;
   }
 
   /* Media query for responsive design */
@@ -147,6 +148,10 @@ body {
         opacity: 85%;
         z-index: 1;
         color: blue;
+        height:0px;
+        opacity: 0%;
+        overflow: hidden;
+        transition: 0.8s;
     }
   
     #menu {
